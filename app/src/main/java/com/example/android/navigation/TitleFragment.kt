@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +25,11 @@ class TitleFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<com.example.android.navigation.databinding.FragmentTitleBinding>(inflater,
                 R.layout.fragment_title,container,false)
+
+        binding.playButton.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+        }
+
         return binding.root
     }
 
